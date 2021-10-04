@@ -12,6 +12,9 @@ describe("<Nodes />", () => {
     checkNodeStatuses: jest.fn()
   };
 
+  const blocksActions = {
+    getListBlocks: jest.fn()
+  }
   const nodes = {
     list: [
       {
@@ -28,12 +31,34 @@ describe("<Nodes />", () => {
       }
     ]
   };
+  const blocks = {
+    data: [
+      {
+        "id": "1",
+        "type": "blocks",
+        "attributes": {
+          "index": 1,
+          "data": "The Human Torch",
+        }
+      },
+      {
+        "id": "2",
+        "type": "blocks",
+        "attributes": {
+          "index": 2,
+          "data": "is denied",
+        }
+      },
+    ]
+  }
 
   it("should contain <Node />", () => {
     const wrapper = shallow(
       <Nodes
         actions={actions}
         nodes={nodes}
+        blocks={blocks}
+        blocksActions={blocksActions}
       />
     );
 
@@ -42,7 +67,7 @@ describe("<Nodes />", () => {
 
   it("should match snapshot", () => {
     const middlewares = [thunk];
-    const store = configureMockStore(middlewares)({nodes});
+    const store = configureMockStore(middlewares)({nodes, blocks});
     const component = create(
       <Provider store={store}>
         <ConnectedNodes />
