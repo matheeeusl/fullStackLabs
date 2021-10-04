@@ -47,13 +47,5 @@ describe("<Blocks />", () => {
     )
     expect(wrapper.find(Block).length).toEqual(2)
   })
-  // it("should be loading", () => {
-  //   const wrapper = shallow(<Blocks blocks={loadingBlock} />);
-  //   expect(wrapper.text().includes("Loading")).toBe(true);
-  // });
-
-  // it("should find an error", () => {
-  //   const wrapper = shallow(<Blocks blocks={errorBlock} />);
-  //   expect(wrapper.text().includes("Error")).toBe(true);
-  // });
+  
 });
