@@ -25,21 +25,6 @@ describe("<Blocks />", () => {
       },
     ],
   };
-  const loadingBlock = [
-    {
-      id: "1",
-      loading: true,
-      error: null,
-    },
-  ];
-  const errorBlock = [
-    {
-      id: "2",
-      loading: false,
-      error: {},
-      data: null
-    },
-  ];
 
   it('should contain <Block />', () => {
     const wrapper = shallow(
@@ -47,5 +32,5 @@ describe("<Blocks />", () => {
     )
     expect(wrapper.find(Block).length).toEqual(2)
   })
-  
+
 });
